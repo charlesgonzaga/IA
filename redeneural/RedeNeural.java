@@ -24,19 +24,23 @@ public class RedeNeural {
         ab.insere(6);
         ab.insere(17);
         ab.insere(12);
-        //ab.insere(25);
+        ab.insere(25);
 
-        System.out.println("=========Em Ordem=========================");
-        ab.percorre(new Ordem());
+        //System.out.println("=========Em Ordem=========================");
+        //ab.percorre(new Ordem());
 
-        System.out.println("=========Pre Ordem (profundidade)=========================");
-        ab.percorre(new PreOrdem());
+        //System.out.println("=========Pre Ordem (profundidade)=========================");
+        //ab.percorre(new PreOrdem());
         
         
         
-        System.out.println("=========Pos Ordem=========================");
-        ab.percorre(new PosOrdem());
+        //System.out.println("=========Pos Ordem=========================");
+        //ab.percorre(new PosOrdem());
 
+        
+        System.out.println("=========Largura=========================");
+        ab.percorre(new Largura());
+        
         System.out.println("=========Delete=========================");
         ab.percorre(new DeleteNode(), 3);
         
