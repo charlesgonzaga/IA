@@ -27,4 +27,7 @@ public class ArvoreBinaria {
         metodo.percorre(raiz);
     }
 
+    public void percorre(IDeleta metodo, int val) {
+        metodo.percorre(raiz, val);
+    }
 }

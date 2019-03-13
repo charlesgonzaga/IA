@@ -10,7 +10,7 @@ package redeneural;
  *
  * @author charles
  */
-public class DeleteNode implements IPercorre {
+public class DeleteNode implements IDeleta {
     
     @Override
     public void percorre(Nodo nodo, int del) {
