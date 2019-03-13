@@ -37,6 +37,9 @@ public class DeleteNode implements IDeleta {
                 }
             }
             
+            percorre(nodo.getEsquerda(), del);
+            percorre(nodo.getDireita(), del);
+            
         }
     }
 
