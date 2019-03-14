@@ -12,36 +12,64 @@ package redeneural;
  */
 public class DeleteNode implements IDeleta {
     
+    Nodo aux = null;
+    Nodo aux2 = null;
+    Nodo menor = null;
+    
     @Override
     public void percorre(Nodo nodo, int del) {
-        if (nodo != null) {
-            
-            if(nodo.getValor() == del) {
-                
-                if(nodo.getEsquerda() != null && nodo.getDireita()!= null) {
-                    
-                }
-                
-                else if(nodo.getEsquerda() != null) {
-                    nodo.setValor(nodo.getEsquerda().getValor());
-                    Nodo x = nodo.getEsquerda();
-                    x = null;
-                }
-                
-                else if( nodo.getDireita()!= null) {
-                    nodo.setValor(nodo.getDireita().getValor());
-                    Nodo x = nodo.getDireita();
-                    x = null;
-                } else {
-                    nodo = null;
-                }
+        
+        if(nodo.getValor() == del) {
+            if(nodo.getEsquerda() == null && nodo.getDireita() == null)
+                nodo = null;
+            else if(nodo.getDireita() == null) {
+                aux = nodo.getEsquerda();
+                this.del(nodo.getEsquerda());
+                nodo = aux;
             }
-            
-            percorre(nodo.getEsquerda(), del);
-            percorre(nodo.getDireita(), del);
-            
+            else if(nodo.getDireita() != null) {
+                aux = this.menor(nodo.getDireita());
+                nodo.setValor(aux.getValor());
+                aux = null;
+            }
         }
-    }
+        else{
+            if(nodo.getDireita() != null)
+                percorre(nodo.getDireita(), del);
 
+            if(nodo.getEsquerda() != null)
+                percorre(nodo.getEsquerda(), del);
+        }
+
+    }
+    
+    public Nodo menor(Nodo n) {
+        if (menor == null)
+            menor = n;
+        else if(n.getValor() < menor.getValor())
+            menor = n;
+        
+        if (n.getEsquerda() != null) {
+            aux2 = n;
+            menor(n.getEsquerda());
+        }
+        if (n.getDireita()!= null) {
+            aux2 = n;
+            menor(n.getDireita());
+        }
+        
+        aux = menor;
+        
+        if(aux2.getEsquerda() == menor)
+            aux2.setEsquerda(null);
+        else if(aux2.getDireita()== menor)
+            aux2.setDireita(null);
+        
+        return aux;
+    }
+    
+    public void del(Nodo x) {
+        x = null;
+    }
 }
 

@@ -42,7 +42,7 @@ public class RedeNeural {
         ab.percorre(new Largura());
         
         System.out.println("=========Delete=========================");
-        ab.percorre(new DeleteNode(), 3);
+        ab.percorre(new DeleteNode(), 7);
         
         System.out.println("=========Largura=========================");
         ab.percorre(new Largura());
